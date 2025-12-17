@@ -108,3 +108,44 @@ for c in consulta_unificada:
 with open('consulta_unificada.json', 'w') as f:
     json.dump(consulta_unificada, f)
 
+# Calcular gasto financiero de las series
+pipeline_gasto = [
+    {
+        "$lookup": {
+            "from": "detalles_produccion",
+            "localField": "titulo",
+            "foreignField": "titulo",
+            "as": "detalles"
+        }
+    },
+    {
+        "$match": {
+            "detalles": {"$ne": []}  # Solo series con detalles
+        }
+    },
+    {
+        "$addFields": {
+            "total_episodios": {"$multiply": ["$temporadas", 10]},  # Asumiendo 10 episodios por temporada
+            "presupuesto_episodio": {"$arrayElemAt": ["$detalles.presupuesto_por_episodio", 0]}
+        }
+    },
+    {
+        "$addFields": {
+            "coste_total": {"$multiply": ["$presupuesto_episodio", "$total_episodios"]}
+        }
+    },
+    {
+        "$project": {
+            "_id": 0,
+            "titulo": 1,
+            "coste_total": 1
+        }
+    }
+]
+
+gasto_series = list(coleccion.aggregate(pipeline_gasto))
+with open('gasto_financiero.json', 'w') as f:
+    json.dump(gasto_series, f, indent=4)
+
+print(f"Se calcularon los costes de {len(gasto_series)} series y se guardaron en gasto_financiero.json")
+
