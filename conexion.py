@@ -32,25 +32,25 @@ for serie in series:
 print(f"Se insertaron {inserted_count} series nuevas.")
 
 maratones_largas = list(coleccion.find({"temporadas": {"$gt": 5}, "puntuacion": {"$gt": 8.0}}))
-for doc in maratones_largas:
-    doc['_id'] = str(doc['_id'])
+for m in maratones_largas:
+    m['_id'] = str(m['_id'])
 with open('maratones.json', 'w') as f:
-    json.dump(maratones_largas, f, indent=4)
+    json.dump(maratones_largas, f)
 
 joyas_comedia = list(coleccion.find({"genero": {"$in": ["Comedy"]}, "año_estreno": {"$gte": 2020}}))
-for doc in joyas_comedia:
-    doc['_id'] = str(doc['_id'])
+for j in joyas_comedia:
+    j['_id'] = str(j['_id'])
 with open('comedias_recientes.json', 'w') as f:
-    json.dump(joyas_comedia, f, indent=4)
+    json.dump(joyas_comedia, f)
 
 contenido_finalizado = list(coleccion.find({"finalizada": True}))
-for doc in contenido_finalizado:
-    doc['_id'] = str(doc['_id'])
+for c in contenido_finalizado:
+    c['_id'] = str(c['_id'])
 with open('series_finalizadas.json', 'w') as f:
-    json.dump(contenido_finalizado, f, indent=4)
+    json.dump(contenido_finalizado, f)
 
 sci_fi_alta = list(coleccion.find({"genero": {"$in": ["Sci-Fi"]}, "puntuacion": {"$gte": 8.5}}))
-for doc in sci_fi_alta:
-    doc['_id'] = str(doc['_id'])
+for s in sci_fi_alta:
+    s['_id'] = str(s['_id'])
 with open('inventada.json', 'w') as f:
-    json.dump(sci_fi_alta, f, indent=4)
+    json.dump(sci_fi_alta, f)
