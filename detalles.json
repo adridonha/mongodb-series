@@ -1,0 +1,17 @@
+[
+  {"titulo": "Stranger Things", "pais_origen": "EE.UU.", "reparto_principal": ["Millie Bobby Brown", "Finn Wolfhard", "David Harbour"], "presupuesto_por_episodio": 6},
+  {"titulo": "The Mandalorian", "pais_origen": "EE.UU.", "reparto_principal": ["Pedro Pascal", "Gina Carano", "Carl Weathers"], "presupuesto_por_episodio": 15},
+  {"titulo": "Breaking Bad", "pais_origen": "EE.UU.", "reparto_principal": ["Bryan Cranston", "Aaron Paul", "Anna Gunn"], "presupuesto_por_episodio": 3},
+  {"titulo": "Game of Thrones", "pais_origen": "EE.UU.", "reparto_principal": ["Emilia Clarke", "Kit Harington", "Peter Dinklage"], "presupuesto_por_episodio": 10},
+  {"titulo": "The Crown", "pais_origen": "Reino Unido", "reparto_principal": ["Claire Foy", "Olivia Colman", "Matt Smith"], "presupuesto_por_episodio": 5},
+  {"titulo": "Black Mirror", "pais_origen": "Reino Unido", "reparto_principal": ["Daniel Lapaine", "Hannah John-Kamen", "Jesse Plemons"], "presupuesto_por_episodio": 4},
+  {"titulo": "The Witcher", "pais_origen": "EE.UU.", "reparto_principal": ["Henry Cavill", "Anya Chalotra", "Freya Allan"], "presupuesto_por_episodio": 8},
+  {"titulo": "Westworld", "pais_origen": "EE.UU.", "reparto_principal": ["Evan Rachel Wood", "Thandie Newton", "Jeffrey Wright"], "presupuesto_por_episodio": 8},
+  {"titulo": "Chernobyl", "pais_origen": "Reino Unido", "reparto_principal": ["Jared Harris", "Stellan Skarsgård", "Emily Watson"], "presupuesto_por_episodio": 6},
+  {"titulo": "The Boys", "pais_origen": "EE.UU.", "reparto_principal": ["Karl Urban", "Jack Quaid", "Antony Starr"], "presupuesto_por_episodio": 10},
+  {"titulo": "Narcos", "pais_origen": "EE.UU.", "reparto_principal": ["Wagner Moura", "Pedro Pascal", "Boyd Holbrook"], "presupuesto_por_episodio": 8},
+  {"titulo": "Money Heist", "pais_origen": "España", "reparto_principal": ["Álvaro Morte", "Úrsula Corberó", "Itziar Ituño"], "presupuesto_por_episodio": 1.5},
+  {"titulo": "The Office", "pais_origen": "EE.UU.", "reparto_principal": ["Steve Carell", "Rainn Wilson", "John Krasinski"], "presupuesto_por_episodio": 0.2},
+  {"titulo": "Friends", "pais_origen": "EE.UU.", "reparto_principal": ["Jennifer Aniston", "Courteney Cox", "Lisa Kudrow"], "presupuesto_por_episodio": 0.2},
+  {"titulo": "How I Met Your Mother", "pais_origen": "EE.UU.", "reparto_principal": ["Josh Radnor", "Neil Patrick Harris", "Cobie Smulders"], "presupuesto_por_episodio": 0.3}
+]

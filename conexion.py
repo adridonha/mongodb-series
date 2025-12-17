@@ -54,3 +54,57 @@ for s in sci_fi_alta:
     s['_id'] = str(s['_id'])
 with open('inventada.json', 'w') as f:
     json.dump(sci_fi_alta, f)
+
+# Calcular la nota media de todas las series
+series = list(coleccion.find({}))
+nota_total = 0
+total_series = 0
+
+for serie in series:
+    nota = serie.get("puntuacion", 0)
+    nota_total += nota
+    total_series += 1
+nota_media = nota_total / total_series if total_series > 0 else 0
+print(f"La nota media de todas las series es: {nota_media}")
+
+# Crear colección detalles_produccion
+detalles_coleccion = baseDatos["detalles_produccion"]
+
+with open('detalles.json', 'r') as f:
+    detalles = json.load(f)
+
+inserted_detalles = 0
+for detalle in detalles:
+    if detalles_coleccion.find_one({"titulo": detalle["titulo"]}) is None:
+        detalles_coleccion.insert_one(detalle)
+        inserted_detalles += 1
+
+print(f"Se insertaron {inserted_detalles} detalles de producción nuevos.")
+
+# Consulta unificada: Series finalizadas, puntuación > 8, de EE.UU.
+pipeline = [
+    {
+        "$lookup": {
+            "from": "detalles_produccion",
+            "localField": "titulo",
+            "foreignField": "titulo",
+            "as": "detalles"
+        }
+    },
+    {
+        "$match": {
+            "finalizada": True,
+            "puntuacion": {"$gt": 8},
+            "detalles.pais_origen": "EE.UU."
+        }
+    }
+]
+
+consulta_unificada = list(coleccion.aggregate(pipeline))
+for c in consulta_unificada:
+    c['_id'] = str(c['_id'])
+    for detalle in c.get('detalles', []):
+        detalle['_id'] = str(detalle['_id'])
+with open('consulta_unificada.json', 'w') as f:
+    json.dump(consulta_unificada, f)
+
